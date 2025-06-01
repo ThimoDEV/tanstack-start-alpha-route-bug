@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "server: namyca",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "bun dev",
+      "cwd": "${workspaceFolder}",
+      "outputCapture": "std"
+    },
+    {
+      "sourceMaps": true,
+      "name": "client: chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      "trace": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "fullstack Namyca",
+      "configurations": ["server: namyca", "client: chrome"]
+    }
+  ]
+}
